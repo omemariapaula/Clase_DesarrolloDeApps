@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de mercado</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 0 15px;
+        color: #222;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .fila {
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+    }
+    .campo {
+        flex: 1;
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    input {
+        width: 100%;
+        padding: 6px;
+        margin-top: 3px;
+        box-sizing: border-box;
+        border: 1px solid #999;
+        border-radius: 3px;
+    }
+    button {
+        padding: 8px 16px;
+        border: 1px solid #333;
+        background: #eee;
+        cursor: pointer;
+        height: 34px;
+    }
+    button:hover {
+        background: #ddd;
+    }
+    ul {
+        margin-top: 20px;
+        padding-left: 20px;
+    }
+    li {
+        margin-bottom: 6px;
+    }
+    #total {
+        margin-top: 15px;
+        font-weight: bold;
+        text-align: right;
+    }
+</style>
+</head>
+<body>
+
+<h2>Lista de mercado</h2>
+
+<div class="fila">
+    <div class="campo">
+        <label for="elemento">Elemento</label>
+        <input type="text" id="elemento">
+    </div>
+    <div class="campo">
+        <label for="cantidad">Cantidad</label>
+        <input type="number" id="cantidad">
+    </div>
+    <div class="campo">
+        <label for="precio">Precio</label>
+        <input type="number" id="precio">
+    </div>
+    <button id="agregarBtn">Agregar</button>
+</div>
+
+<ul id="lista"></ul>
+
+<div id="total">Total: $0</div>
+
+<script>
+    const elementoInput = document.getElementById('elemento');
+    const cantidadInput = document.getElementById('cantidad');
+    const precioInput = document.getElementById('precio');
+    const agregarBtn = document.getElementById('agregarBtn');
+    const lista = document.getElementById('lista');
+    const totalDiv = document.getElementById('total');
+
+    let total = 0;
+
+    agregarBtn.addEventListener('click', function() {
+        const elemento = elementoInput.value;
+        const cantidad = cantidadInput.value;
+        const precio = precioInput.value;
+
+        if (elemento === '' || cantidad === '' || precio === '') {
+            return;
+        }
+
+        const subtotal = cantidad * precio;
+
+        const item = document.createElement('li');
+        item.textContent = elemento + ' - Cant: ' + cantidad + ' - $' + precio + ' c/u';
+        lista.appendChild(item);
+
+        total += subtotal;
+        totalDiv.textContent = 'Total: $' + total;
+
+        elementoInput.value = '';
+        cantidadInput.value = '';
+        precioInput.value = '';
+        elementoInput.focus();
+    });
+</script>
+
+</body>
+</html>
