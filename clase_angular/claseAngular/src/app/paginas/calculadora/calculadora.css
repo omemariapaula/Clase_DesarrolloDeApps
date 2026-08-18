@@ -1,0 +1,116 @@
+.calculadora {
+  max-width: 380px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  color: #444;
+}
+
+.campo input,
+.campo select {
+  padding: 0.5rem;
+  border: 1px solid #b0b0b0;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #222;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: #888;
+}
+
+.campo input[readonly] {
+  background-color: #f5f5f5;
+}
+
+.fila {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.fila select {
+  flex: 1;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #222;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e2e2e2;
+}
+
+button.link {
+  border: none;
+  background: none;
+  color: #444;
+  padding: 0;
+  text-decoration: underline;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.error {
+  color: #a33;
+  font-size: 0.9rem;
+  margin: 0 0 1rem 0;
+}
+
+.historial {
+  margin-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1rem;
+}
+
+.historial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.historial h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.historial .vacio {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.historial ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.historial li {
+  font-size: 0.9rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}

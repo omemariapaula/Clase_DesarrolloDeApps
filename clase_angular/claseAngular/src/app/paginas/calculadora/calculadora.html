@@ -1,0 +1,65 @@
+<div class="calculadora">
+
+  <div class="campo">
+    <label for="num1">Número 1</label>
+    <input
+      id="num1"
+      type="number"
+      [(ngModel)]="num1"
+      placeholder="Ingresa el número 1">
+  </div>
+
+  <div class="campo">
+    <label for="num2">Número 2</label>
+    <input
+      id="num2"
+      type="number"
+      [(ngModel)]="num2"
+      placeholder="Ingresa el número 2">
+  </div>
+
+  <div class="campo">
+    <label for="operacion">Operación</label>
+    <div class="fila">
+      <select id="operacion" [(ngModel)]="operacion">
+        <option value="suma">Suma</option>
+        <option value="resta">Resta</option>
+        <option value="multiplicacion">Multiplicación</option>
+        <option value="division">División</option>
+      </select>
+
+      <button type="button" (click)="calcular()">Calcular</button>
+    </div>
+  </div>
+
+  <div class="campo">
+    <label for="resultado">Resultado</label>
+    <input id="resultado" type="text" [value]="resultado ?? ''" readonly>
+  </div>
+
+  @if (mensajeError) {
+    <p class="error">{{ mensajeError }}</p>
+  }
+
+  <div class="historial">
+    <div class="historial-header">
+      <h3>Históricos</h3>
+      @if (historial.length) {
+        <button type="button" class="link" (click)="limpiarHistorial()">Limpiar</button>
+      }
+    </div>
+
+    @if (!historial.length) {
+      <p class="vacio">Aún no hay operaciones.</p>
+    } @else {
+      <ul>
+        @for (registro of historial; track $index) {
+          <li>
+            {{ registro.num1 }} {{ simboloOperacion(registro.operacion) }} {{ registro.num2 }} = {{ registro.resultado }}
+          </li>
+        }
+      </ul>
+    }
+  </div>
+
+</div>
