@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Calculadora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item fill="outline">
+    <ion-label position="stacked">Número 1</ion-label>
+    <ion-input type="number" [(ngModel)]="numero1" name="numero1"></ion-input>
+  </ion-item>
+
+  <ion-item fill="outline">
+    <ion-label position="stacked">Número 2</ion-label>
+    <ion-input type="number" [(ngModel)]="numero2" name="numero2"></ion-input>
+  </ion-item>
+
+  <ion-item fill="outline">
+    <ion-label position="stacked">Operación</ion-label>
+    <ion-select [(ngModel)]="operacionSeleccionada" name="operacion" interface="popover">
+      <ion-select-option value="suma">Suma</ion-select-option>
+      <ion-select-option value="resta">Resta</ion-select-option>
+      <ion-select-option value="multiplicacion">Multiplicación</ion-select-option>
+      <ion-select-option value="division">División</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" (click)="calcular()">Calcular</ion-button>
+
+  <div class="seccion">
+    <ion-label>Resultado</ion-label>
+    <p class="error" *ngIf="errorMensaje">{{ errorMensaje }}</p>
+    <p class="resultado" *ngIf="resultado !== null && !errorMensaje">{{ resultado }}</p>
+    <p class="vacio" *ngIf="resultado === null && !errorMensaje">—</p>
+  </div>
+
+  <div class="seccion">
+    <ion-label>Históricos</ion-label>
+    <p class="vacio" *ngIf="historial.length === 0">Sin operaciones</p>
+    <ion-list *ngIf="historial.length > 0">
+      <ion-item *ngFor="let item of historial">
+        {{ item.numero1 }} {{ item.tipo }} {{ item.numero2 }} = {{ item.resultado }}
+      </ion-item>
+    </ion-list>
+    <ion-button fill="clear" size="small" *ngIf="historial.length > 0" (click)="limpiarHistorial()">
+      Limpiar historial
+    </ion-button>
+  </div>
+
+</ion-content>

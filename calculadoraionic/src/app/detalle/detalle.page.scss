@@ -1,0 +1,17 @@
+ion-content { --background: #f5f5f5; --color: #333333; }
+.contenedor { max-width: 700px; margin: 0 auto; padding: 1rem; }
+.tarjeta { background: #ffffff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+.tarjeta h1 { font-size: 1.4rem; margin: 0 0 0.5rem 0; }
+.tarjeta h2 { font-size: 1.05rem; margin: 0 0 0.75rem 0; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+.descripcion { color: #555; line-height: 1.4; }
+.codigo { background: #f4f4f4; border: 1px solid #ddd; border-radius: 6px; padding: 1rem; overflow-x: auto; font-size: 0.85rem; white-space: pre-wrap; word-break: break-word; }
+.fila-prop { padding: 0.75rem 0; border-bottom: 1px solid #f0f0f0; }
+.fila-prop:last-child { border-bottom: none; }
+.prop-nombre { font-weight: 600; font-family: monospace; margin-bottom: 0.35rem; }
+.badge { display: inline-block; font-size: 0.75rem; background: #eef0f2; color: #444; padding: 0.15rem 0.5rem; border-radius: 4px; margin-right: 0.4rem; margin-bottom: 0.4rem; font-family: monospace; }
+.badge.defecto { background: #f5f5f5; }
+.prop-detalle p { margin: 0.3rem 0 0 0; color: #555; font-size: 0.9rem; }
+.fila-simple { padding: 0.6rem 0; border-bottom: 1px solid #f0f0f0; }
+.fila-simple:last-child { border-bottom: none; }
+.nombre-evento { font-weight: 600; font-family: monospace; color: #333; }
+.fila-simple p { margin: 0.3rem 0 0 0; color: #555; font-size: 0.9rem; }

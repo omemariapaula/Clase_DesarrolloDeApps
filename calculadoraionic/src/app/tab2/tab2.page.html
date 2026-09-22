@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Componentes de Ionic</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="contenedor">
+    <ion-list lines="full">
+      <ion-item *ngFor="let componente of componentes" button="true" detail="true"
+        [routerLink]="['/detalle', componente.slug]">
+        <ion-label>
+          <h2>{{ componente.nombre }}</h2>
+          <p>{{ componente.descripcion }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

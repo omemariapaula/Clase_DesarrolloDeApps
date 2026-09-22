@@ -1,0 +1,7 @@
+{
+  "name": "calculadoraionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

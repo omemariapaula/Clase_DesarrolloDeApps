@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ componente?.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="contenedor" *ngIf="componente">
+    <section class="tarjeta">
+      <h1>{{ componente.nombre }}</h1>
+      <p class="descripcion">{{ componente.descripcion }}</p>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Ejemplo de código</h2>
+      <pre class="codigo"><code>{{ componente.ejemploCodigo }}</code></pre>
+    </section>
+
+    <section class="tarjeta" *ngIf="componente.propiedades.length > 0">
+      <h2>Propiedades</h2>
+      <div class="fila-prop" *ngFor="let prop of componente.propiedades">
+        <div class="prop-nombre">{{ prop.nombre }}</div>
+        <div class="prop-detalle">
+          <span class="badge">{{ prop.tipo }}</span>
+          <span class="badge defecto">por defecto: {{ prop.porDefecto }}</span>
+          <p>{{ prop.descripcion }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tarjeta" *ngIf="componente.eventos.length > 0">
+      <h2>Eventos</h2>
+      <div class="fila-simple" *ngFor="let ev of componente.eventos">
+        <span class="nombre-evento">{{ ev.nombre }}</span>
+        <p>{{ ev.descripcion }}</p>
+      </div>
+    </section>
+
+    <section class="tarjeta" *ngIf="componente.slots.length > 0">
+      <h2>Slots</h2>
+      <div class="fila-simple" *ngFor="let slot of componente.slots">
+        <span class="nombre-evento">{{ slot.nombre }}</span>
+        <p>{{ slot.descripcion }}</p>
+      </div>
+    </section>
+
+    <section class="tarjeta" *ngIf="componente.cssProperties.length > 0">
+      <h2>CSS Custom Properties</h2>
+      <div class="fila-simple" *ngFor="let css of componente.cssProperties">
+        <span class="nombre-evento">{{ css.nombre }}</span>
+        <p>{{ css.descripcion }}</p>
+      </div>
+    </section>
+  </div>
+</ion-content>
